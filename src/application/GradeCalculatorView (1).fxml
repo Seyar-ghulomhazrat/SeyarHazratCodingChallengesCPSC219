@@ -26,10 +26,9 @@
                   <Insets bottom="10.0" left="4.0" right="10.0" top="10.0" />
                </HBox.margin>
             </Label>
-            <Label text = "this should cause a merge conflict"/>
          </children>
       </HBox>
-
+		<Label text = "this should cause a merge conflict"/>
       <HBox>
          <children>
             <Label prefHeight="17.0" prefWidth="201.0" text=" Required Coding Challenges Passed">
