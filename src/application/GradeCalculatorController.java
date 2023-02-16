@@ -41,7 +41,7 @@ public class GradeCalculatorController {
     	int requiredCodingChallengesPassed = codingChallengesChoiceBox.getValue();
     	
     	int optionalCodingChallengesPassed = optionalChallengesChoiceBox.getValue();
-    	courseGrade += (((optionalCodingChallengesPassed+requiredCodingChallengesPassed)*100/20)*0.6);
+    	courseGrade += (((optionalCodingChallengesPassed+requiredCodingChallengesPassed)*100/20)*0.3);
 
     	courseGradeLabel.setText(String.format("Your overall course grade is: %.2f", courseGrade));
     	
