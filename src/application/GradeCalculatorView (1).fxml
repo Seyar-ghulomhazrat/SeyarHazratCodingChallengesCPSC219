@@ -28,7 +28,16 @@
             </Label>
          </children>
       </HBox>
-		<Label text = "this should cause a merge conflict"/>
+		  <Label text = "this should cause a merge conflict"/>
+      <Label fx:id = "projectErrorLabel" text="Label" textFill = "RED">
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </Label>
+
+
+
+
       <HBox>
          <children>
             <Label prefHeight="17.0" prefWidth="201.0" text=" Required Coding Challenges Passed">
