@@ -28,11 +28,15 @@
             </Label>
          </children>
       </HBox>
+		  <Label text = "this should cause a merge conflict"/>
       <Label fx:id = "projectErrorLabel" text="Label" textFill = "RED">
          <VBox.margin>
             <Insets left="10.0" />
          </VBox.margin>
       </Label>
+
+
+
 
       <HBox>
          <children>
