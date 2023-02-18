@@ -23,20 +23,15 @@
             </TextField>
             <Label prefHeight="17.0" prefWidth="48.0" text="\%">
             	<HBox.margin>
-                  <Insets bottom="10.0" left="4.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="4.0" right="0.0" top="10.0" />
                </HBox.margin>
             </Label>
+            <Label fx:id="projectGradeErrorLabel" text="" textFill="RED">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="0.0" right="10.0" top="10.0" />
+               </HBox.margin></Label>
          </children>
       </HBox>
-		  <Label text = "this should cause a merge conflict"/>
-      <Label fx:id = "projectErrorLabel" text="Label" textFill = "RED">
-         <VBox.margin>
-            <Insets left="10.0" />
-         </VBox.margin>
-      </Label>
-
-
-
 
       <HBox>
          <children>
