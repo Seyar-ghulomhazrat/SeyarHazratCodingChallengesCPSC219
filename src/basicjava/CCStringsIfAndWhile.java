@@ -19,6 +19,8 @@ public class CCStringsIfAndWhile {
 
 	public static int count(String str, String chars) {
 	    int sameCharacterCount = 0;
+	    str = str.toUpperCase();
+	    chars = chars.toUpperCase();
 	    //start count at zero and loop through first input
 	    for (int i = 0; i < str.length();) {
 	        char c = str.charAt(i);
@@ -41,9 +43,20 @@ public class CCStringsIfAndWhile {
 	}
 
 
-	public static int smallestDigit(int i) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public static int smallestDigit(int num) {
+	    // Convert negative input to positive
+	    if (num < 0) {
+	        num = -num;
+	    }
+	    int smallestDig = num % 10;
+	    while (num != 0) {
+	        int digit = num % 10;
+	        if (digit < smallestDig) {
+	            smallestDig = digit;
+	        }
+	        num /= 10;
+	    }
+	    return smallestDig;
+	}}
 
-}
+
