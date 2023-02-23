@@ -3,8 +3,18 @@ package basicjava;
 public class CCStringsIfAndWhile {
 
 	public static boolean isDigit(char c) {
-		// TODO Auto-generated method stub
-		return false;
+	    boolean isDig = false;
+	    // setting a character equal to zero and checking if it equals input character. 
+	    char dig = '0';
+	    //Iterating through all dig.
+	    while (dig <= '9') {
+	        if (c == dig) {
+	            isDig = true;
+	            break;
+	        }
+	        dig+=1;
+	 }
+	    return isDig;
 	}
 
 	public static int count(String string, String string2) {
