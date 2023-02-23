@@ -17,10 +17,29 @@ public class CCStringsIfAndWhile {
 	    return isDig;
 	}
 
-	public static int count(String string, String string2) {
-		// TODO Auto-generated method stub
-		return 0;
+	public static int count(String str, String chars) {
+	    int sameCharacterCount = 0;
+	    //start count at zero and loop through first input
+	    for (int i = 0; i < str.length();) {
+	        char c = str.charAt(i);
+	        boolean sameChar = false;
+	        //loop through second input
+	        for (int j = 0; j < chars.length();) {
+	        	//check if both iterations are equal to each other. 
+	            if (c == chars.charAt(j)) {
+	                sameChar = true;
+	                break;
+	            }
+	            j+=1;
+	        }
+	        if (sameChar == true) {
+	            sameCharacterCount+=1;
+	        }
+	        i+=1;
+	    }
+	    return sameCharacterCount;
 	}
+
 
 	public static int smallestDigit(int i) {
 		// TODO Auto-generated method stub
