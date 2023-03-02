@@ -15,6 +15,8 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/GradeCalculatorView (1).fxml"));
+			GradeCalculatorController controller = (GradeCalculatorController)loader.getController();
+			controller.applicationStage = primaryStage;
 			Scene scene = new Scene(root,650,300);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Seyar's Grade Calculator");
