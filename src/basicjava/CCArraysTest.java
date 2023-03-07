@@ -5,12 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class CCArraysTest {
-	public static void replace(char[] charArray, char toReplace, char replaceWith) {
-		
-	}
-	public static void sortAlphabetic(String[] strArray) {
-		 
-	}
 
 	@Test
 	public void test_replace_emptyArray() {
