@@ -1,6 +1,9 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javafx.event.ActionEvent;
 
@@ -107,24 +110,56 @@ public class GradeCalculatorController {
     	applicationStage.setScene(quizScene);
     }
     Label optionalQuizErrorLabel = new Label();
+    
     void calculateOptionalQuizGrades(Scene mainScene, ArrayList<TextField> quizGradeTextfield) {
-    	optionalQuizErrorLabel.setText("");
-    	double weightPerQuiz = 1.0/5.0;
-    	averageOptionalQuizGrade = 0.0;
-    	boolean errorInQuizGrade = false;    	
-    	for (TextField textfield : quizGradeTextfield) {
-    		Grade optionalQuizGrade = new Grade(0,10,weightPerQuiz);
-    		String errorMessage = optionalQuizGrade.setValue(textfield.getText());
-    		if (!errorMessage.equals("")) {
-    			errorInQuizGrade = true;
-    			optionalQuizErrorLabel.setText(errorMessage);
-    		}
-    	averageOptionalQuizGrade += optionalQuizGrade.getWeightedPercentageGrade();
-    	}
-    	if (!errorInQuizGrade) {
-    		applicationStage.setScene(mainScene);
-    		averageOptionalQuizGradeLabel.setText(String.format("Average Optional Quiz Grade: %.1f%%", averageOptionalQuizGrade));
-    	}
+        optionalQuizErrorLabel.setText("");
+        int numberOfTotalGrades = quizGradeTextfield.size();
+        int numberOfExcessGrades = 0;
+        double weightPerQuiz = 1.0/5.0;
+        averageOptionalQuizGrade = 0.0;
+        boolean errorInQuizGrade = false;
+        
+        //run loop initially in case of errors in user inputs
+        for (TextField textfield : quizGradeTextfield) {
+            Grade optionalQuizGrade = new Grade(0,10,weightPerQuiz);
+            String errorMessage = optionalQuizGrade.setValue(textfield.getText());
+            if (!errorMessage.equals("")) {
+                errorInQuizGrade = true;
+                optionalQuizErrorLabel.setText(errorMessage);
+            }}
+        // two statements to check if the number of grades is greater than 5. If so, sorts the list in ascending order and removes the necessary
+        //amount of grades from the overall. 
+        if (numberOfTotalGrades == 6 && errorInQuizGrade == false) {
+            quizGradeTextfield.sort(Comparator.comparingDouble(tf -> Double.parseDouble(tf.getText())));
+            numberOfExcessGrades = 1;
+            for (int i = 0; i < numberOfExcessGrades;) {
+                quizGradeTextfield.remove(0);
+                i+=1;
+            }
+        }
+        if (numberOfTotalGrades == 7 && errorInQuizGrade == false) {
+            quizGradeTextfield.sort(Comparator.comparingDouble(tf -> Double.parseDouble(tf.getText())));
+            numberOfExcessGrades = 2;
+            for (int i = 0; i < numberOfExcessGrades;) {
+                quizGradeTextfield.remove(0);
+                i+=1;
+            }
+        }
+        //looping through text fields, checking for errors, and calculating average quiz Grade.
+        for (TextField textfield : quizGradeTextfield) {
+            Grade optionalQuizGrade = new Grade(0,10,weightPerQuiz);
+            String errorMessage = optionalQuizGrade.setValue(textfield.getText());
+            if (!errorMessage.equals("")) {
+                errorInQuizGrade = true;
+                optionalQuizErrorLabel.setText(errorMessage);
+            }
+            averageOptionalQuizGrade += optionalQuizGrade.getWeightedPercentageGrade();
+        }
+        
+        if (!errorInQuizGrade) {
+            applicationStage.setScene(mainScene);
+            averageOptionalQuizGradeLabel.setText(String.format("Average Optional Quiz Grade: %.1f%%", averageOptionalQuizGrade));
+        }
     }
     
     @FXML
